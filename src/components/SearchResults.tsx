@@ -40,15 +40,13 @@ export default function SearchResults({
       {
         Object.values(mapDict(uniqueItems, r => (
           <div key={r.id} className="w-full border-gray-600 border-1 px-2 py-1 rounded-sm">
-            <h2 className="text-md md:text-lg font-bold mb-1">{r.product}</h2>
+            <h2 className="font-bold">{r.product}</h2>
+            <div className="mb-1 opacity-50 font-mono">{r.id}</div>
             <div className="grid grid-cols-[auto_1fr] grid-flow-row ml-5">
-              {
-                r.brand &&
-                <div className="grid grid-cols-subgrid col-span-full">
-                  <span className="opacity-75 mr-1">Бренд:</span>
-                  <span>{r.brand}</span>
-                </div>
-              }
+              <div className="grid grid-cols-subgrid col-span-full">
+                <span className="opacity-75 mr-1">Бренд:</span>
+                <span>{r.brand ?? 'не указан'}</span>
+              </div>
               <div className="grid grid-cols-subgrid col-span-full">
                 <span className="opacity-75 mr-1">Цена:</span>
                 <span>{r.price} &#8381;</span>
