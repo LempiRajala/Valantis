@@ -22,7 +22,11 @@ export default function SearchResults({
   }
 
   if(!items) {
-    return <div>Загрузка...</div>
+    return <div>Грузим товары...</div>
+  }
+
+  if(items.length === 0) {
+    return <div>Ничего не найдено</div>
   }
 
   const canLeft = pageIndex > 0;
