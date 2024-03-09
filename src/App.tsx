@@ -47,14 +47,12 @@ export default function App() {
             </select>
           </div>
         </div>
-        <div>
-          {
-            !!ids ?
-            <SearchResults ids={ids} pageIndex={pageIndex} onChangePage={setPageIndex}
-              limit={DEFAULT_LIMIT} className='border-gray-600 border-1 px-2 py-1 rounded-sm'/>
-            : 'Выполняем поиск...'
-          }
-        </div>
+        {
+          !!ids ?
+          <SearchResults ids={ids} pageIndex={pageIndex} onChangePage={setPageIndex}
+            limit={DEFAULT_LIMIT}/>
+          : <span>Выполняем поиск...</span>
+        }
       </main>
     </SWRConfig>
   )

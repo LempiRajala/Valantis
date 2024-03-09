@@ -1,13 +1,12 @@
-import clsx from "clsx";
 import { useItems } from "../hooks"
 import { Item } from "../types";
 import { mapDict } from "../utils";
 import Pagination from "./Pagination";
 
 export default function SearchResults({
-  ids, className, onChangePage, pageIndex, limit
+  ids, onChangePage, pageIndex, limit
 }: {
-  ids: string[], className?: string, pageIndex: number, limit: number
+  ids: string[], pageIndex: number, limit: number
   onChangePage: (index: number) => void
 }) {
   const idsToFetch = (
@@ -37,23 +36,21 @@ export default function SearchResults({
   return (
     <div className="flex flex-col gap-3">
       <Pagination selected={pageIndex} onChange={onChangePage} canLeft={canLeft} canRight={canRight}/>
-      <div className='w-full grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3'>
+      <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3'>
       {
         Object.values(mapDict(uniqueItems, r => (
-          <div key={r.id} className={clsx(
-            "",
-            className)}>
+          <div key={r.id} className="w-full border-gray-600 border-1 px-2 py-1 rounded-sm">
             <h2 className="text-md md:text-lg font-bold mb-1">{r.product}</h2>
             <div className="grid grid-cols-[auto_1fr] grid-flow-row ml-5">
               {
                 r.brand &&
                 <div className="grid grid-cols-subgrid col-span-full">
-                  <span className="capitalize opacity-75 mr-1">бренд:</span>
+                  <span className="opacity-75 mr-1">Бренд:</span>
                   <span>{r.brand}</span>
                 </div>
               }
               <div className="grid grid-cols-subgrid col-span-full">
-                <span className="capitalize opacity-75 mr-1">цена:</span>
+                <span className="opacity-75 mr-1">Цена:</span>
                 <span>{r.price} &#8381;</span>
               </div>
             </div>
