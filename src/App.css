@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-blacky text-[rgba(255,255,255,0.87)];
+}
+
+input, select {
+  @apply bg-darky;
+}
