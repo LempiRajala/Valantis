@@ -23,7 +23,7 @@ export const apiFetch = async (
   const url = (
     `${location.protocol}//${API_DOMAIN}:` +
     (
-      location.protocol.endsWith('s') ?
+      location.protocol.includes('s') ?
       HTTPS_API_PORT : HTTP_API_PORT));
   const res = await fetch(url, {
     method: 'POST',
